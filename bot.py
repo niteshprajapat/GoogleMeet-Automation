@@ -17,6 +17,13 @@ import pyautogui
 chromedriver_path = 'C:/Users/Nitesh Prajapati/Downloads/chromedriver.exe' 
 driver = webdriver.Chrome(executable_path=chromedriver_path)
 
+
+
+
+
+
+
+
 driver.maximize_window()
 
 driver.get("https://meet.google.com/")
@@ -52,6 +59,40 @@ def LETS_START_MEETING():
 
             except Exception as e:
                 print(f"Error :: {e}")
+
+        code = pyautogui.prompt("Enter your Meeting Code to join ")
+        # enter_code(code)
+
+
+        def New_Meeting():
+            try:
+
+                new_meeting_btn = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div[2]/div/div[1]/div[3]/div[1]/div[1]/div/button')
+                new_meeting_btn.click()
+                sleep(2)
+
+                def create_new_meeting_later():
+                    try:
+                        link_btn = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div[2]/div/div[1]/div[3]/div[1]/div[2]/div/ul/li[1]/span[2]/i')
+                        link_btn.click()
+                        sleep(2)
+
+                        copy_link = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[8]/div/div[2]/span/div/div[2]/div/div[2]/div/span/span/span/svg')
+                        copy_link.click()
+
+                        /*/*sdhjsadhf
+
+                    except Exception as e:
+                        print(f"Error :: {e}")
+
+                create_new_meeting_later()
+
+
+
+            except Exception as e:
+                print(f"Error :: {e}")
+
+        New_Meeting()
 
     except Exception as e:
         print(f"Error :: {e}")
