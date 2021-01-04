@@ -35,9 +35,23 @@ def sign_in(email, pwd):
     except Exception as e:
         print(f"Error :: {e}")
 
+
 email = pyautogui.prompt("Enter your Email to sign in ")
 pwd = pyautogui.prompt("Enter your Password to sign in ")
-sign_in(email, pwd)
+# sign_in(email, pwd)
 
 
 
+def LETS_START_MEETING():
+    try:
+
+        def enter_code(code):
+            try:
+                code_input = driver.find_element(By.ID, 'i3')
+                code_input.send_keys(code, Keys.ENTER)
+
+            except Exception as e:
+                print(f"Error :: {e}")
+
+    except Exception as e:
+        print(f"Error :: {e}")
