@@ -78,9 +78,35 @@ def LETS_START_MEETING():
                         sleep(2)
 
                         copy_link = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[8]/div/div[2]/span/div/div[2]/div/div[2]/div/span/span/span/svg')
-                        copy_link.click()
+                        data = copy_link.click()  # CHECK THIS PROPERLY
 
-                        /*/*sdhjsadhf
+                        whats_app = pyautogui.prompt("Wanna to send link to Whatsapp group (Y/y) ")
+
+                        if whats_app == "Y" or whats_app == "y":
+                            try:
+                                driver.maximize_window()
+                                driver.get("https://web.whatsapp.com/")
+                                sleep(5)
+
+                                name = pyautogui.prompt("Enter group-name (must be same as whatsApp's contact) ")
+
+                                search_box = driver.find_element(By.XPATH, '//*[@id="side"]/div[1]/div/label/div/div[2]')
+                                search_box.send_keys(name, Keys.ENTER)
+
+                                text_box = driver.find_element(By.XPATH, '//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')
+                                text_box.send_keys(f"Here is your today's class link  \n{data}", Keys.ENTER)
+
+                                sleep(2)
+
+                                driver.close()
+
+
+
+                            except Exception as e:
+                                print(f"Unable to send link to whatsApp , Error  :: {e}")
+
+                        else:
+                            pass
 
                     except Exception as e:
                         print(f"Error :: {e}")
