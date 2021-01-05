@@ -102,7 +102,9 @@ def LETS_START_MEETING():
                                     f"Unable to send link to whatsApp , Error  :: {e}")
 
                         else:
-                            pass
+                            driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[3]/div/div[2]/div[2]/div[3]/div/span/span/svg/path[1]').click()
+
+                            dfgdjhgkjdfhgkdfghdfghjldfgk
 
                     except Exception as e:
                         print(f"Error :: {e}")
@@ -136,10 +138,71 @@ def LETS_START_MEETING():
                             pass
 
 
-                        ## Incomplete
+                        User_CHoice = int(pyautogui.prompt("1. Join Meeting   2. Present screen"))
 
-                        gdhkjfhgkdfhkdjfhgkjshdfghskjdfhgkjhs
-                        ##
+                        def Join_Meeting():
+                            try:
+                                join_now_btn = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div/div[8]/div[3]/div/div/div[2]/div/div[1]/div[2]/div/div[2]/div/div[1]/div[1]/span/span')
+                                join_now_btn.click()
+                                data_link = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[3]/div/div[2]/span/div[4]/div/span/span/span[1]/svg')                                    
+                                data_link.click()
+                                
+                                joining_link = pyautogui.prompt("Want to share joining link (y/N) ")
+
+                                if joining_link == "Y" or joining_link == "y":
+    
+                                    try:
+                                        driver.maximize_window()
+                                        driver.get("https://web.whatsapp.com/")
+                                        sleep(5)
+
+                                        name = pyautogui.prompt(
+                                            "Enter group-name (must be same as whatsApp's contact) ")
+
+                                        search_box = driver.find_element(
+                                            By.XPATH, '//*[@id="side"]/div[1]/div/label/div/div[2]')
+                                        search_box.send_keys(name, Keys.ENTER)
+
+                                        text_box = driver.find_element(
+                                            By.XPATH, '//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')
+                                        text_box.send_keys(
+                                            f"Here is your today's class link  \n{data_link}", Keys.ENTER)
+
+                                        sleep(2)
+
+                                        driver.close()
+
+                                    except Exception as e:
+                                        print(
+                                            f"Unable to send link to whatsApp , Error  :: {e}")
+
+                                else:
+                                    driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[3]/div/div[2]/div[2]/div[3]/div/span/span/svg/path[1]').click()
+
+
+                            except Exception as e:
+                                print(f"Error :: {e}")
+
+
+                        def Present_Screen():
+                            try:
+                                pass
+
+                            except Exception as e:
+                                print(f"Error :: {e}")
+
+                        if User_CHoice == 1:
+                            Join_Meeting()
+
+                        elif User_CHoice == 2:
+                            Present_Screen()
+
+                        else:
+                            pass
+
+                        
+
+
 
                     except Exception as e:
                         print(f"Error :: {e}")
