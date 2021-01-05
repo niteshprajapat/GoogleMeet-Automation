@@ -1,27 +1,18 @@
 # TASKS ------>>>>
-  # if user is not signed in -->> create signin method
-  # if already signed in by system -->>
-     #   
-
-
+# if user is not signed in -->> create signin method
+# if already signed in by system -->>
+#
 
 
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys 
-from selenium.webdriver.common.by import By 
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 from time import sleep
 import pyautogui
 
 
-
-chromedriver_path = 'C:/Users/Nitesh Prajapati/Downloads/chromedriver.exe' 
+chromedriver_path = 'C:/Users/Nitesh Prajapati/Downloads/chromedriver.exe'
 driver = webdriver.Chrome(executable_path=chromedriver_path)
-
-
-
-
-
-
 
 
 driver.maximize_window()
@@ -35,9 +26,9 @@ def sign_in(email, pwd):
         email_input = driver.find_element(By.ID, 'identifierId')
         email.send_keys(email, Keys.ENTER)
 
-        pwd_input = driver.find_element(By.NAME, 'password')     #  XPATH = '//*[@id="password"]/div[1]/div/div[1]/input'
+        # XPATH = '//*[@id="password"]/div[1]/div/div[1]/input'
+        pwd_input = driver.find_element(By.NAME, 'password')
         pwd_input.send_keys(pwd, Keys.ENTER)
-
 
     except Exception as e:
         print(f"Error :: {e}")
@@ -46,7 +37,6 @@ def sign_in(email, pwd):
 email = pyautogui.prompt("Enter your Email to sign in ")
 pwd = pyautogui.prompt("Enter your Password to sign in ")
 # sign_in(email, pwd)
-
 
 
 def LETS_START_MEETING():
@@ -63,24 +53,27 @@ def LETS_START_MEETING():
         code = pyautogui.prompt("Enter your Meeting Code to join ")
         # enter_code(code)
 
-
         def New_Meeting():
             try:
 
-                new_meeting_btn = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div[2]/div/div[1]/div[3]/div[1]/div[1]/div/button')
+                new_meeting_btn = driver.find_element(
+                    By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div[2]/div/div[1]/div[3]/div[1]/div[1]/div/button')
                 new_meeting_btn.click()
                 sleep(2)
 
                 def create_new_meeting_later():
                     try:
-                        link_btn = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div[2]/div/div[1]/div[3]/div[1]/div[2]/div/ul/li[1]/span[2]/i')
+                        link_btn = driver.find_element(
+                            By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div[2]/div/div[1]/div[3]/div[1]/div[2]/div/ul/li[1]/span[2]/i')
                         link_btn.click()
                         sleep(2)
 
-                        copy_link = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[8]/div/div[2]/span/div/div[2]/div/div[2]/div/span/span/span/svg')
+                        copy_link = driver.find_element(
+                            By.XPATH, '//*[@id="yDmH0d"]/div[8]/div/div[2]/span/div/div[2]/div/div[2]/div/span/span/span/svg')
                         data = copy_link.click()  # CHECK THIS PROPERLY
 
-                        whats_app = pyautogui.prompt("Wanna to send link to Whatsapp group (Y/y) ")
+                        whats_app = pyautogui.prompt(
+                            "Wanna to send link to Whatsapp group (Y/y) ")
 
                         if whats_app == "Y" or whats_app == "y":
                             try:
@@ -88,22 +81,25 @@ def LETS_START_MEETING():
                                 driver.get("https://web.whatsapp.com/")
                                 sleep(5)
 
-                                name = pyautogui.prompt("Enter group-name (must be same as whatsApp's contact) ")
+                                name = pyautogui.prompt(
+                                    "Enter group-name (must be same as whatsApp's contact) ")
 
-                                search_box = driver.find_element(By.XPATH, '//*[@id="side"]/div[1]/div/label/div/div[2]')
+                                search_box = driver.find_element(
+                                    By.XPATH, '//*[@id="side"]/div[1]/div/label/div/div[2]')
                                 search_box.send_keys(name, Keys.ENTER)
 
-                                text_box = driver.find_element(By.XPATH, '//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')
-                                text_box.send_keys(f"Here is your today's class link  \n{data}", Keys.ENTER)
+                                text_box = driver.find_element(
+                                    By.XPATH, '//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')
+                                text_box.send_keys(
+                                    f"Here is your today's class link  \n{data}", Keys.ENTER)
 
                                 sleep(2)
 
                                 driver.close()
 
-
-
                             except Exception as e:
-                                print(f"Unable to send link to whatsApp , Error  :: {e}")
+                                print(
+                                    f"Unable to send link to whatsApp , Error  :: {e}")
 
                         else:
                             pass
@@ -113,7 +109,36 @@ def LETS_START_MEETING():
 
                 create_new_meeting_later()
 
+                def create_instatnt_meeting():
+                    try:
 
+                        add_btn = driver.find_element(
+                            By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div[2]/div/div[1]/div[3]/div[1]/div[2]/div/ul/li[2]/span[2]/i')
+                        add_btn.click()
+                        sleep(5)
+
+                        mute = pyautogui.prompt("Want to mute/unmute (Y/y)")
+                        if mute == "Y" or mute == "y":
+                            mute_btn = driver.find_element(
+                                By.XPATH, '//*[@id="ow49"]/div/div')
+                            mute_btn.click()
+                        else:
+                            pass
+
+                        video = pyautogui.prompt(
+                            "Wanna to turn Off/On the video (Y/y)")
+                        if video == "Y" or video == "y":
+                            video_btn = driver.find_element(
+                                By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div/div[8]/div[3]/div/div/div[2]/div/div[1]/div[1]/div[1]/div/div[4]/div[2]/div/div')
+                            video_btn.click()
+
+                        else:
+                            pass
+
+                    except Exception as e:
+                        print(f"Error :: {e}")
+
+                create_instatnt_meeting()
 
             except Exception as e:
                 print(f"Error :: {e}")
@@ -122,3 +147,6 @@ def LETS_START_MEETING():
 
     except Exception as e:
         print(f"Error :: {e}")
+
+
+LETS_START_MEETING()
