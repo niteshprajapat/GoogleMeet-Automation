@@ -138,7 +138,6 @@ def LETS_START_MEETING():
                             pass
 
 
-                        User_CHoice = int(pyautogui.prompt("1. Join Meeting   2. Present screen"))
 
                         def Join_Meeting():
                             try:
@@ -186,10 +185,14 @@ def LETS_START_MEETING():
 
                         def Present_Screen():
                             try:
-                                pass
+                                hfdgjshd
 
                             except Exception as e:
                                 print(f"Error :: {e}")
+
+
+                        
+                        User_CHoice = int(pyautogui.prompt("1. Join Meeting   2. Present screen"))
 
                         if User_CHoice == 1:
                             Join_Meeting()
