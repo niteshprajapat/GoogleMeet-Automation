@@ -7,6 +7,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
 from time import sleep
 import pyautogui
 
@@ -192,7 +193,11 @@ def LETS_START_MEETING():
 
                                         msg_input = driver.find_element(By.XPATH, '//*[@id="ow3"]/div[1]/div/div[8]/div[3]/div[3]/div/div[2]/div[2]/div[2]/span[2]/div/div[3]/div[1]/div[1]/div[2]/textarea')
                                         sleep(2)
-                                        msg_input.send_keys(your_good_msg, Keys.ENTER)
+                                        msg_input.send_keys(your_good_msg, sleep(2) ,Keys.ENTER)
+                                        sleep(2)
+                                        close_cross = driver.find_element(By.XPATH, '//*[@id="ow3"]/div[1]/div/div[8]/div[3]/div[3]/div/div[2]/div[1]/div[2]/div/button/i').click()
+
+
                                     student_msg()
 
                                     again_msg = pyautogui.prompt("Wanna to message again ?")
@@ -203,6 +208,37 @@ def LETS_START_MEETING():
 
                                 else:
                                     pass
+
+
+                                present_your_window = pyautogui.prompt("Want to present your Screen (y/N)??")
+                                if present_your_window == "Y" or present_your_window == "y":
+                                    driver.find_element(By.XPATH, '//*[@id="ow137"]/div/span/span/div/div[1]/span/svg/path').click()
+                                    sleep(2)
+
+                                    def Entrie_Window():
+                                        sleep(2)
+                                        data_data = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/span[1]/div[3]/div').click()
+                                        sleep(2)
+                                        actions = ActionChains(driver)
+                                        actions.double_click(data_data).perform()
+
+                                    def A_window():
+                                        yet to add here
+
+
+                                    def A_tab():
+                                        yet to add here
+                                        
+
+                                    asdf = int(pyautogui.prompt("1. Entire Window  2. A window  3. A tab"))
+
+                                    if asdf == 1:
+                                        Entrie_Window()
+
+                                    elif 
+
+
+
                                     
 
 
