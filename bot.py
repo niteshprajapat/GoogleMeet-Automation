@@ -109,7 +109,7 @@ def LETS_START_MEETING():
                     except Exception as e:
                         print(f"Error :: {e}")
 
-                create_new_meeting_later()
+                # create_new_meeting_later()
 
                 def create_instatnt_meeting():
                     try:
@@ -207,12 +207,42 @@ def LETS_START_MEETING():
                     except Exception as e:
                         print(f"Error :: {e}")
 
-                create_instatnt_meeting()
+                # create_instatnt_meeting()
+
+                user_xy_choice = int(pyautogui.prompt("1. Create meeting later  2. Create instant meeting"))
+                if user_xy_choice == 1:
+                    create_new_meeting_later()
+
+                elif user_xy_choice == 2:
+                    create_instatnt_meeting()
+
+                else:
+                    pass
 
             except Exception as e:
                 print(f"Error :: {e}")
 
-        New_Meeting()
+        # New_Meeting()
+
+
+        user_x_choice = int(pyautogui.prompt("1. Join via Meeting Code   2. Create new Meeting"))
+
+        if __name__ == '__main__':
+
+            if user_x_choice ==  1 :
+                enter_code(code)
+            
+            elif user_x_choice == 2:
+                New_Meeting()
+
+            else:
+                pass
+                
+
+
+
+
+            
 
     except Exception as e:
         print(f"Error :: {e}")
