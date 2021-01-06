@@ -179,6 +179,33 @@ def LETS_START_MEETING():
                                     driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[3]/div/div[2]/div[2]/div[3]/div/span/span/svg/path[1]').click()
 
 
+
+                                chatt = pyautogui.prompt("Wanna to Chat with other forks (y/N)?")
+
+                                if chatt == "Y" or chatt == "y":
+                                    def student_msg():
+                                        sleep(2)
+                                        your_good_msg = pyautogui.prompt("Enter the message you wanna to share with other ")
+                                        msg_icon = driver.find_element(By.XPATH, '//*[@id="ow3"]/div[1]/div/div[8]/div[3]/div[6]/div[3]/div/div[2]/div[3]/span/span/div/div/span/svg/path[2]')
+                                        msg_icon.click()
+                                        sleep(5)
+
+                                        msg_input = driver.find_element(By.XPATH, '//*[@id="ow3"]/div[1]/div/div[8]/div[3]/div[3]/div/div[2]/div[2]/div[2]/span[2]/div/div[3]/div[1]/div[1]/div[2]/textarea')
+                                        sleep(2)
+                                        msg_input.send_keys(your_good_msg, Keys.ENTER)
+                                    student_msg()
+
+                                    again_msg = pyautogui.prompt("Wanna to message again ?")
+                                    if again_msg == "Y" or again_msg == "y":
+                                        student_msg()
+                                    else:
+                                        pass
+
+                                else:
+                                    pass
+                                    
+
+
                             except Exception as e:
                                 print(f"Error :: {e}")
 
