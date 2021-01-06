@@ -34,8 +34,8 @@ def sign_in(email, pwd):
         print(f"Error :: {e}")
 
 
-email = pyautogui.prompt("Enter your Email to sign in ")
-pwd = pyautogui.prompt("Enter your Password to sign in ")
+# email = pyautogui.prompt("Enter your Email to sign in ")
+# pwd = pyautogui.prompt("Enter your Password to sign in ")
 # sign_in(email, pwd)
 
 
@@ -104,7 +104,7 @@ def LETS_START_MEETING():
                         else:
                             driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/div[3]/div/div[2]/div[2]/div[3]/div/span/span/svg/path[1]').click()
 
-                            dfgdjhgkjdfhgkdfghdfghjldfgk
+
 
                     except Exception as e:
                         print(f"Error :: {e}")
@@ -218,4 +218,4 @@ def LETS_START_MEETING():
         print(f"Error :: {e}")
 
 
-LETS_START_MEETING()
+# LETS_START_MEETING()
