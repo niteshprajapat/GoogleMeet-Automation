@@ -250,7 +250,11 @@ def LETS_START_MEETING():
 
                         def Present_Screen():
                             try:
-                                hfdgjshd
+                                sleep(2)
+                                present_btn = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div/div[8]/div[3]/div/div/div[2]/div/div[1]/div[2]/div/div[2]/div/div[1]/div[2]/span/span')
+                                present_btn.click()
+                                sleep(4)
+                                
 
                             except Exception as e:
                                 print(f"Error :: {e}")
