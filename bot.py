@@ -215,27 +215,29 @@ def LETS_START_MEETING():
                                     driver.find_element(By.XPATH, '//*[@id="ow137"]/div/span/span/div/div[1]/span/svg/path').click()
                                     sleep(2)
 
-                                    def Entrie_Window():
+                                    def Entire_Window():
                                         sleep(2)
                                         data_data = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/span[1]/div[3]/div').click()
                                         sleep(2)
                                         actions = ActionChains(driver)
                                         actions.double_click(data_data).perform()
 
-                                    def A_window():
-                                        yet to add here
+                                    # def A_window():
+                                        # sleep(2)
 
 
-                                    def A_tab():
-                                        yet to add here
+
+                                    # def A_tab():
+                                        # yet to add here
                                         
 
                                     asdf = int(pyautogui.prompt("1. Entire Window  2. A window  3. A tab"))
 
                                     if asdf == 1:
-                                        Entrie_Window()
+                                        Entire_Window()
 
-                                    elif 
+                                    else:
+                                        pass
 
 
 
